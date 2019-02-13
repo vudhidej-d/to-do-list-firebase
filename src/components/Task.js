@@ -1,5 +1,13 @@
 import React from 'react'
 import { Col, Card, Button } from 'antd'
+import styled from '@emotion/styled'
+
+const StyledButton = styled(Button)`
+  background-color: #ffffff;
+  :hover {
+    background-color: #f5222d;
+  }
+`
 
 const Task = (props) => {
   const {
@@ -28,7 +36,11 @@ const Task = (props) => {
             onClick={down}
             disabled={downDisabled}
           />
-          <Button icon="delete" type="danger" onClick={remove} />
+          <StyledButton
+            icon="delete"
+            type="danger"
+            onClick={remove}
+          />
         </Button.Group>
       </Card>
     </Col>
