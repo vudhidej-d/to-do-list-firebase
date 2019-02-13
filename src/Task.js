@@ -13,4 +13,9 @@ const Task = (props) => {
   )
 }
 
+Task.defaultProps = {
+  id: '',
+  task: 'Task'
+}
+
 export default Task
