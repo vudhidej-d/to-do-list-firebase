@@ -1,9 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider as StoreProvider } from 'react-redux'
 import './index.css';
 import 'antd/dist/antd.css'
-import App from './App';
+import ToDoList from './components/ToDoList';
+import store from './store'
 import * as serviceWorker from './serviceWorker';
+
+const App = () => (
+  <StoreProvider store={store}>
+    <ToDoList />
+  </StoreProvider>
+)
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
