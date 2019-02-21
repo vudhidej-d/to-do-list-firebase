@@ -9,7 +9,7 @@ class ToDoList extends Component {
     super(props)
     this.state = {
       value: '',
-      tasks: []
+      // tasks: []
     }
   }
 
@@ -19,46 +19,38 @@ class ToDoList extends Component {
   }
 
   addTask = () => {
-    const { value, tasks } = this.state
+    const { value } = this.state
     const { addTaskAction } = this.props
     if (!value) return
-    const task = {
-      id: Number.parseInt(Math.random() * 10000, 10).toString(),
-      task: value
-    }
     addTaskAction(value)
-    this.setState({
-      value: '',
-      tasks: tasks.concat(task)
-    })
   }
 
   removeTask = (id) => () => {
-    const { tasks } = this.state
-    const newTasks = tasks.filter((task) => task.id !== id)
-    this.setState({ tasks: newTasks })
+    // const { tasks } = this.state
+    // const newTasks = tasks.filter((task) => task.id !== id)
+    // this.setState({ tasks: newTasks })
   }
 
   upTask = (id) => () => {
-    const { tasks } = this.state
-    const index = tasks.findIndex((task) => task.id === id)
-    const newTasks = tasks.map((task, pos) => {
-      if (pos === index - 1) return tasks[index]
-      if (pos === index) return tasks[index - 1]
-      return task
-    })
-    this.setState({ tasks: newTasks })
+    // const { tasks } = this.state
+    // const index = tasks.findIndex((task) => task.id === id)
+    // const newTasks = tasks.map((task, pos) => {
+    //   if (pos === index - 1) return tasks[index]
+    //   if (pos === index) return tasks[index - 1]
+    //   return task
+    // })
+    // this.setState({ tasks: newTasks })
   }
 
   downTask = (id) => () => {
-    const { tasks } = this.state
-    const index = tasks.findIndex((task) => task.id === id)
-    const newTasks = tasks.map((task, pos) => {
-      if (pos === index) return tasks[index+1]
-      if (pos === index+1) return tasks[index]
-      return task
-    })
-    this.setState({ tasks: newTasks })
+    // const { tasks } = this.state
+    // const index = tasks.findIndex((task) => task.id === id)
+    // const newTasks = tasks.map((task, pos) => {
+    //   if (pos === index) return tasks[index+1]
+    //   if (pos === index+1) return tasks[index]
+    //   return task
+    // })
+    // this.setState({ tasks: newTasks })
   }
 
   render() {
