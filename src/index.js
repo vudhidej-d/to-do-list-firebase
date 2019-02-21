@@ -1,10 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
+import React from 'react'
+import { Provider } from 'react-redux'
+import ReactDOM from 'react-dom'
+import './index.css'
 import 'antd/dist/antd.css'
-import App from './components/App';
-import * as serviceWorker from './serviceWorker';
+import ToDoList from './components/ToDoList'
+import store from './store/rootReducer'
+import * as serviceWorker from './serviceWorker'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const App = () => (
+  <Provider store={store}>
+    <ToDoList />
+  </Provider>
+)
 
-serviceWorker.unregister();
+ReactDOM.render(<App />, document.getElementById('root'))
+
+serviceWorker.unregister()

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import { Input, Col, Row } from 'antd'
 import Task from './Task'
+import { addTaskAction } from '../store/tasks/actions'
 
-class App extends Component {
+class ToDoList extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -18,11 +20,13 @@ class App extends Component {
 
   addTask = () => {
     const { value, tasks } = this.state
+    const { addTaskAction } = this.props
     if (!value) return
     const task = {
       id: Number.parseInt(Math.random() * 10000, 10).toString(),
       task: value
     }
+    addTaskAction(value)
     this.setState({
       value: '',
       tasks: tasks.concat(task)
@@ -58,7 +62,9 @@ class App extends Component {
   }
 
   render() {
-    const { value, tasks } = this.state
+    console.log(this.props)
+    const { value } = this.state
+    const { tasks } = this.props
     return (
       <Row style={{ padding: '20px' }} >
         <Col span={24} style={{ paddingBottom: '20px' }}>
@@ -87,4 +93,12 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  tasks: state.tasks
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  addTaskAction: (task) => dispatch(addTaskAction(task)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ToDoList)
