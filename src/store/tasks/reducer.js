@@ -1,8 +1,7 @@
 import { ADD_TASK, DEL_TASK, UP_TASK, DOWN_TASK } from './actionTypes'
 
 const tasksReducer = (state = [], action) => {
-  const { type } = action
-  const { payload } = action
+  const { type, payload } = action
   switch (type) {
     case ADD_TASK:
       const task = {
@@ -12,16 +11,13 @@ const tasksReducer = (state = [], action) => {
       return state.concat(task)
     
     case DEL_TASK:
-      
       break
 
     case UP_TASK:
-      
       break
 
     case DOWN_TASK:
-      
-      break;
+      break
   
     default:
       return state
