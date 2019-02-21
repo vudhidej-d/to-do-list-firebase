@@ -32,7 +32,6 @@ const taskReducer = (state = [], action) => {
       })
     }
     default : {
-      console.log('default')
       return state
     }
   }

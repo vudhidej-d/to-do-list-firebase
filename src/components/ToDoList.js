@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux'
 import { Input, Col, Row } from 'antd'
 import Task from './Task'
 import { addTaskAction, removeTaskAction, moveUpAction, moveDownAction } from '../store/tasks/action'
 
-class ToDoList extends Component {
+class ToDoList extends PureComponent {
   constructor(props) {
     super(props)
     this.state = { value: '' }
